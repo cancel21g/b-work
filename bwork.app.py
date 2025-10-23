@@ -99,28 +99,7 @@ if df is not None:
             st.markdown("### 인기업종 (사업자수 상위)")
             st.dataframe(popular_df, use_container_width=True)
 
-        # ---- Charts with matplotlib (no seaborn, no specific colors) ----
-        # 1) 유망업종 증가율 막대그래프
-        if not promising_df.empty:
-            fig1 = plt.figure()
-            x = promising_df["업종"]
-            y = promising_df["매출증가율(%)"]
-            plt.bar(x, y)
-            plt.xticks(rotation=70, ha="right")
-            plt.ylabel("매출증가율(%)")
-            plt.title("유망업종: 매출증가율(%) 상위")
-            st.pyplot(fig1)
-
-        # 2) 인기업종 사업자수 막대그래프
-        if not popular_df.empty:
-            fig2 = plt.figure()
-            x2 = popular_df["업종"]
-            y2 = popular_df["사업자수_당월"]
-            plt.bar(x2, y2)
-            plt.xticks(rotation=70, ha="right")
-            plt.ylabel("사업자수(당월)")
-            plt.title("인기업종: 사업자수(당월) 상위")
-            st.pyplot(fig2)
+        
 
     except Exception as e:
         st.error(f"분석 중 오류가 발생했습니다: {e}")
