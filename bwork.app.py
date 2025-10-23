@@ -13,7 +13,7 @@ st.sidebar.header("데이터 불러오기")
 uploaded = st.sidebar.file_uploader("CSV 업로드 (.csv, UTF-8-SIG 권장)", type=["csv"])
 csv_path_text = st.sidebar.text_input("또는 CSV 경로 입력", value="")
 top_n = st.sidebar.number_input("상위 N개", min_value=1, max_value=50, value=10, step=1)
-growth_thresh = st.sidebar.number_input("유망업종 증가율 임계값(%)", min_value=0.0, max_value=10000.0, value=100.0, step=10.0)
+growth_thresh = st.sidebar.number_input("유망업종 증가율 임계값(%)", min_value=0.0, max_value=10000.0, value=0.0, step=1.0)
 
 @st.cache_data(show_spinner=False)
 def load_csv_from_path(path: str) -> pd.DataFrame:
